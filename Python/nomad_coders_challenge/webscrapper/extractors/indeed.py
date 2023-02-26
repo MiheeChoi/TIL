@@ -22,7 +22,7 @@ def get_page_count(keyword):
     return count
 
 
-def extrac_indeed_jobs(keyword):
+def extract_indeed_jobs(keyword):
   pages = get_page_count(keyword)
   print("Found", pages, "pages")
   results = []
@@ -52,12 +52,9 @@ def extrac_indeed_jobs(keyword):
         location = job.find("div", class_="companyLocation")
         job_data = {
           'link': f"https://kr.indeed.com/{link}",
-          'company': company.string,
-          'locaton': location.string,
-          'position': title
+          'company': company.string.replace(",", " "),
+          'location': location.string.replace(",", " "),
+          'position': title.replace(",", " ")
         }
         results.append(job_data)
-
-    for result in results:
-      print(result, "\n////////")
   return results
