@@ -1,4 +1,5 @@
-list = [3,4,2,5,1]
-arr = [(0,0),(1,1),(2,2)]
-list.append(arr[1][1])
-print(list)
+result = 9**(1/2)
+if type(result) == int(result):
+    print('pass')
+else:
+    print("dksla")
